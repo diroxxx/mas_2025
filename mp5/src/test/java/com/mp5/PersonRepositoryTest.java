@@ -5,8 +5,6 @@ import com.mp5.model.Teacher;
 import com.mp5.repository.PersonRepository;
 import com.mp5.repository.StudentRepository;
 import com.mp5.repository.TeacherRepository;
-
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
