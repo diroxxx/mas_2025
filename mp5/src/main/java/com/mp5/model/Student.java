@@ -1,9 +1,6 @@
 package com.mp5.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -23,10 +20,11 @@ public class Student extends Person{
     @Size(min = 2, max = 30)
     private String index;
 
-    @OneToMany(mappedBy = "student", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "student_group_uni",joinColumns = @JoinColumn(name = "student_id"),inverseJoinColumns = @JoinColumn(name = "group_uni_id"))
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @Builder.Default
-    private Set<StudentGroup> studentGroups = new HashSet<>();
+    private Set<GroupUni> submitTo = new HashSet<>();
 
 }

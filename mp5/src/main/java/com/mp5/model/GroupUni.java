@@ -26,11 +26,11 @@ public class GroupUni {
     @Size(min = 2, max = 30)
     private String type;
 
-    @OneToMany(mappedBy = "studentGroupUni", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "submitTo", fetch = FetchType.LAZY)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @Builder.Default
-    private Set<StudentGroup> studentGroups = new HashSet<>();
+    private Set<Student> submitedBy = new HashSet<>();
 
     @OneToMany(mappedBy = "groupUni", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @ToString.Exclude
